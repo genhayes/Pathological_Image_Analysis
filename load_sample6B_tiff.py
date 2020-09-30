@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
+Sept 30, 2020
+Initial loading functions for tiff image of core 6B of cancerous urotherlial cells stained for GATA3 and KRT5.
 """
 
 from PIL import Image
