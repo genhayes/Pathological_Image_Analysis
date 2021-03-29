@@ -34,7 +34,7 @@ from MAIN_Functions import *
 
 # In[1]: LOAD AND CROP IMAGE AND FEATURES
 
-SAVEIMG = 1
+SAVEIMG = 0
 
 #filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Sample 6B/Bladder 1 TMA - QATA3_sample6B.tiff"
 #filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Bladder 1 TMA - Sample 6D.tiff"
@@ -47,7 +47,6 @@ filepath_featurekngp = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Features/
 filepath_featurekngp_2 = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Features/krt5neg_gata3pos_2.tiff"
 filepath_featurekngp_3 = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Features/krt5neg_gata3pos_7.tiff"
 filepath_featurekngp_4 = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Features/krt5neg_gata3pos_4.tiff"
-filepath_featurekngp_5 = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Features/krt5neg_gata3pos_5.tiff"
 
 filepath_featurekpgp = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Features/krt5pos_gata3pos.tiff"
 filepath_featurekpgp_2 = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Features/krt5pos_gata3pos_2.tiff"
@@ -67,7 +66,6 @@ BGR_featureimg_kngp = load_BGR_img(filepath_featurekngp)
 BGR_featureimg_kngp_2 = load_BGR_img(filepath_featurekngp_2)
 BGR_featureimg_kngp_3 = load_BGR_img(filepath_featurekngp_3)
 BGR_featureimg_kngp_4 = load_BGR_img(filepath_featurekngp_4)
-BGR_featureimg_kngp_5 = load_BGR_img(filepath_featurekngp_5)
 
 BGR_featureimg_kpgp = load_BGR_img(filepath_featurekpgp)
 BGR_featureimg_kpgp_2 = load_BGR_img(filepath_featurekpgp_2)

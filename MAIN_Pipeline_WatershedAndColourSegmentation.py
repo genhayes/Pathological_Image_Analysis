@@ -30,7 +30,7 @@ from MAIN_Functions import *
 # In[1]: LOAD IMAGE
 
 # Set SAVEIMG to 1 to save images
-SAVEIMG = 1
+SAVEIMG = 0
 
 # high res parameters
 min_radius_kn = 3

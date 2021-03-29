@@ -33,7 +33,7 @@ from MAIN_Functions import *
 
 # In[1]: LOAD AND CROP IMAGE AND FEATURES
 
-SAVEIMG = 1
+SAVEIMG = 0
 
 # high res parameters
 min_radius_kn = 3
@@ -118,33 +118,6 @@ for ind_x in range(0, int(x_iterations)):
         
         mask_closedred = fill_mask_holes(mask_red, 0)
         
-        #In[4]: REMOVE FILLED RED REGION FROM IMAGE
-        
-        image_nored = removeRedRegionFromImage(BGR_cropimg, mask_closedred)
-        
-        cv2.imshow('No red white region',image_nored)
-        cv2.waitKey(1) 
-        
-        #In[4]: APPLY TEMPLATE MATCHING WITHOUT RED REGION
-        
-        listTemplate_inwhite = [('A', BGR_featureimg_kngp),('B', BGR_featureimg_kngp_2),('G', BGR_featureimg_kngp_3),('D', BGR_featureimg_kngp_4)]#,('E', BGR_featureimg_kngp_5)]
-        Hits = matchTemplates(listTemplate_inwhite, image_nored, score_threshold=0.55, method=cv2.TM_CCOEFF_NORMED, maxOverlap=0)
-        Overlay_inwhite = drawBoxesOnRGB(image_nored, Hits, showLabel=True)
-        
-        total_inwhite = len(Hits)
-        
-        listTemplate_blueinwhite = [('*A', BGR_featureimg_kngn),('*B', BGR_featureimg_kngn_2),('*C', BGR_featureimg_kngn_3)]
-        Hits_blueinwhite = matchTemplates(listTemplate_blueinwhite, image_nored, score_threshold=0.75, method=cv2.TM_CCOEFF_NORMED, maxOverlap=0)
-        Overlay_blueinwhite = drawBoxesOnRGB(image_nored, Hits_blueinwhite, showLabel=True)
-        
-        total_blueinwhite = len(Hits_blueinwhite)
-        
-        print('\n KRT5 -\n')
-        print('Number of GATA3+ segments identified:', total_inwhite)
-        print('Number of GATA3- segments identified:', total_blueinwhite)
-        
-        cv2.imshow('KRT5- Region', Overlay_inwhite)
-        cv2.waitKey(1)
         
         #In[6]: INVERT MASK TO GET ONLY RED REGION
         
@@ -169,31 +142,54 @@ for ind_x in range(0, int(x_iterations)):
         
         BGR_cropimg_watershed_inred, total_inred, brown_inred, total_blueinred = watershedSegmentation_redRegion(BGR_cropimg_duplicate, markers_red, thresh_red, dist_red, gray_red, markersimg_red, min_radius_kp, max_radius_kp)
         
+        # show the output watershed image
+        cv2.imshow("Total Watershed Segmented Image", BGR_cropimg_watershed_inred)
+        cv2.waitKey(1)
+        
         #plt.subplot(1, 2, 1)
         #plt.imshow(BGR_cropimg_watershed_inred)
         #plt.subplot(1, 2, 2)
         #plt.imshow(Overlay_inwhite)
         #plt.show()
         
-        combined_img = cv2.hconcat((BGR_cropimg_watershed_inred, Overlay_inwhite))
-        cv2.imshow("Combined Segmentation Images", combined_img)
+        #In[4]: REMOVE FILLED RED REGION FROM IMAGE
+        
+        image_nored = removeRedRegionFromImage(BGR_cropimg, mask_closedred)
+        
+        cv2.imshow('No red white region',image_nored)
+        cv2.waitKey(1) 
+        
+        #In[4]: APPLY TEMPLATE MATCHING WITHOUT RED REGION
+        
+        listTemplate_inwhite = [('A', BGR_featureimg_kngp),('B', BGR_featureimg_kngp_2),('G', BGR_featureimg_kngp_3),('D', BGR_featureimg_kngp_4)]#,('E', BGR_featureimg_kngp_5)]
+        Hits = matchTemplates(listTemplate_inwhite, image_nored, score_threshold=0.55, method=cv2.TM_CCOEFF_NORMED, maxOverlap=0)
+        Overlay_inwhite = drawBoxesOnRGB(BGR_cropimg_watershed_inred, Hits, showLabel=True)
+        
+        total_inwhite = len(Hits)
+        
+        listTemplate_blueinwhite = [('*A', BGR_featureimg_kngn),('*B', BGR_featureimg_kngn_2),('*C', BGR_featureimg_kngn_3)]
+        Hits_blueinwhite = matchTemplates(listTemplate_blueinwhite, image_nored, score_threshold=0.75, method=cv2.TM_CCOEFF_NORMED, maxOverlap=0)
+        Overlay_blueinwhite = drawBoxesOnRGB(BGR_cropimg_watershed_inred, Hits_blueinwhite, showLabel=True)
+        
+        total_blueinwhite = len(Hits_blueinwhite)
+        
+        print('\n KRT5 -\n')
+        print('Number of GATA3+ segments identified:', total_inwhite)
+        print('Number of GATA3- segments identified:', total_blueinwhite)
+        
+        cv2.imshow('KRT5- Region', Overlay_inwhite)
         cv2.waitKey(1)
         
-        # show the output watershed image
-        cv2.imshow("Total Watershed Segmented Image", BGR_cropimg_watershed_inred)
-        cv2.waitKey(1)
+        #combined_img = cv2.hconcat((BGR_cropimg_watershed_inred, Overlay_inwhite))
+        #cv2.imshow("Combined Segmentation Images", combined_img)
+        #cv2.waitKey(1) 
+
         
         print('\n KRT5 +\n')
         print('Number of GATA3+ segments identified:', total_inred)
         print('Number of GATA3- segments identified:', total_blueinred)
         
-        #cv2.imshow('KRT5+ Region', Overlay_inred)
-        #cv2.waitKey(1)
-        
-        #Total_overlay = drawBoxesOnRGB(BGR_cropimg, pd.concat([Hits,Hits_inred]), showLabel=True)
-        #cv2.imshow('KRT5+ Region', Total_overlay)
-        #cv2.waitKey(1)
-        
+
         TOTAL_kngn = np.append(TOTAL_kngn, total_blueinwhite)
         TOTAL_kngp = np.append(TOTAL_kngp, total_inwhite)
         TOTAL_kpgp = np.append(TOTAL_kpgp, total_inred)
@@ -201,8 +197,8 @@ for ind_x in range(0, int(x_iterations)):
         
         if SAVEIMG == 1:
             filename_output = "Outputs_CHR6G/"+str(ind_x)+str(ind_y)+ "processed_img_section.tiff"
-            cv2.imwrite(filename_output, combined_img)
-            print('- Image Saved -')
+            cv2.imwrite(filename_output, Overlay_inwhite)
+            print('\n- Image Saved -')
             
 print('\nIMAGE PROCESSING COMPLETE') 
 print('----     ----    ----    ----')         

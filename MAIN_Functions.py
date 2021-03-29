@@ -197,7 +197,6 @@ def BGRinBlueRange_redRegion(mean_colour_in_contourHSV):
     return inBlueRange
 
 def watershedSegmentation_whiteRegion(BGR_cropimg, markers, thresh, dist, gray, markersimg, min_radius, max_radius):
-    colour_threshold = 160#120 #COLOUR THRESHOLD
 
     HSV_cropimg = cv2.cvtColor(BGR_cropimg, cv2.COLOR_BGR2HSV)
     #Identify each rsegmented region
@@ -269,7 +268,6 @@ def watershedSegmentation_whiteRegion(BGR_cropimg, markers, thresh, dist, gray, 
     return BGR_cropimg, total, brown, blue
 
 def watershedSegmentation_redRegion(img, markers, thresh, dist, gray, markersimg, min_radius, max_radius):
-    colour_threshold = 160#120 #COLOUR THRESHOLD
 
     HSV_cropimg = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     #Identify each rsegmented region
