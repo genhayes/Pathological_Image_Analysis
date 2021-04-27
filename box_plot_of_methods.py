@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Mar 28 21:24:34 2021
+Created on Wed Mar 31 19:23:11 2021
 
 @author: genevieve.hayes
-
-Bulk Analysis
 """
+
 import matplotlib.pyplot as plt
 import matplotlib
 import numpy as np
 
 SAVEIMG = 1
-
 
 # In[]:
     
@@ -25,158 +23,6 @@ fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(9.5, 5.5)
     
 #Watershed Info
-
-# #File:Sample4B.tiff
-# w4Bkpgp = 400.0
-# w4Bkngn = 526.0
-# w4Bkpgn = 1.0
-# w4Bkngp = 2358.0
-# #File:Sample3I.tiff
-# w3Ikpgp = 53.0
-# w3Ikngn = 1510.0
-# w3Ikpgn = 14.0
-# w3Ikngp = 42.0
-# #File:Sample1I.tiff
-# w1Ikpgp = 2150.0
-# w1Ikngn = 327.0
-# w1Ikpgn = 243.0
-# w1Ikngp = 358.0
-# #File:Sample6B.tiff
-# w6Bkpgp = 3509.0
-# w6Bkngn = 1048.0
-# w6Bkpgn = 80.0
-# w6Bkngp = 2516.0
-# #File:Sample2C.tiff
-# w2Ckpgp = 1595.0
-# w2Ckngn = 741.0
-# w2Ckpgn = 6.0
-# w2Ckngp = 4231.0
-# #File:Sample2B.tiff
-# w2Bkpgp = 160.0
-# w2Bkngn = 474.0
-# w2Bkpgn = 4.0
-# w2Bkngp = 662.0
-# #File:Sample6C.tiff
-# w6Ckpgp = 1570.0
-# w6Ckngn = 799.0
-# w6Ckpgn = 10.0
-# w6Ckngp = 4813.0
-# #File:Sample1H.tiff
-# w1Hkpgp = 1262.0
-# w1Hkngn = 255.0
-# w1Hkpgn = 19.0
-# w1Hkngp = 122.0
-# #File:Sample3H.tiff
-# w3Hkpgp = 1122.0
-# w3Hkngn = 1828.0
-# w3Hkpgn = 29.0
-# w3Hkngp = 3293.0
-# #File:Sample4C.tiff
-# w4Ckpgp = 2091.0
-# w4Ckngn = 560.0
-# w4Ckpgn = 17.0
-# w4Ckngp = 4390.0
-# #File:Sample6D.tiff
-# w6Dkpgp = 1137.0
-# w6Dkngn = 2485.0
-# w6Dkpgn = 9.0
-# w6Dkngp = 2765.0
-# #File:Sample2E.tiff
-# w2Ekpgp = 386.0
-# w2Ekngn = 1080.0
-# w2Ekpgn = 13.0
-# w2Ekngp = 1677.0
-# #File:Sample4D.tiff
-# w4Dkpgp = 2710.0
-# w4Dkngn = 859.0
-# w4Dkpgn = 9.0
-# w4Dkngp = 4865.0
-# #File:Sample2I.tiff
-# w2Ikpgp = 320.0
-# w2Ikngn = 1052.0
-# w2Ikpgn = 13.0
-# w2Ikngp = 1428.0
-# #File:Sample6I.tiff
-# w6Ikpgp = 64.0
-# w6Ikngn = 1127.0
-# w6Ikpgn = 2.0
-# w6Ikngp = 1175.0
-# #File:Sample1B.tiff
-# w1Bkpgp = 143.0
-# w1Bkngn = 231.0
-# w1Bkpgn = 9.0
-# w1Bkngp = 2554.0
-# #File:Sample4E.tiff
-# w4Ekpgp = 839.0
-# w4Ekngn = 2389.0
-# w4Ekpgn = 97.0
-# w4Ekngp = 1003.0
-# #File:Sample5C.tiff
-# w5Ckpgp = 1862.0
-# w5Ckngn = 938.0
-# w5Ckpgn = 2.0
-# w5Ckngp = 5169.0
-# #File:Sample6E.tiff
-# w6Ekpgp = 723.0
-# w6Ekngn = 609.0
-# w6Ekpgn = 3.0
-# w6Ekngp = 2604.0
-# #File:Sample6F.tiff
-# w6Fkpgp = 97.0
-# w6Fkngn = 1010.0
-# w6Fkpgn = 5.0
-# w6Fkngp = 516.0
-# #File:Sample6J.tiff
-# w6Jkpgp = 1215.0
-# w6Jkngn = 928.0
-# w6Jkpgn = 15.0
-# w6Jkngp = 3520.0
-# #File:Sample1A.tiff
-# w1Akpgp = 708.0
-# w1Akngn = 156.0
-# w1Akpgn = 9.0
-# w1Akngp = 2718.0
-# #File:Sample5A.tiff
-# w5Akpgp = 332.0
-# w5Akngn = 243.0
-# w5Akpgn = 3.0
-# w5Akngp = 1738.0
-# #File:Sample6G.tiff
-# w6Gkpgp = 5507.0
-# w6Gkngn = 441.0
-# w6Gkpgn = 1.0
-# w6Gkngp = 503.0
-# #File:Sample1G.tiff
-# w1Gkpgp = 1981.0
-# w1Gkngn = 129.0
-# w1Gkpgn = 27.0
-# w1Gkngp = 18.0
-# #File:Sample2A.tiff
-# w2Akpgp = 238.0
-# w2Akngn = 552.0
-# w2Akpgn = 4.0
-# w2Akngp = 1811.0
-# #File:Sample5J.tiff
-# w5Jkpgp = 776.0
-# w5Jkngn = 193.0
-# w5Jkpgn = 8.0
-# w5Jkngp = 556.0
-# #File:Sample1J.tiff
-# w1Jkpgp = 3821.0
-# w1Jkngn = 203.0
-# w1Jkpgn = 64.0
-# w1Jkngp = 21.0
-# #File:Sample6A.tiff
-# w6Akpgp = 1853.0
-# w6Akngn = 1296.0
-# w6Akpgn = 17.0
-# w6Akngp = 1164.0
-# #File:Sample3F.tiff
-# w3Fkpgp = 609.0
-# w3Fkngn = 480.0
-# w3Fkpgn = 10.0
-# w3Fkngp = 203.0
-
 #File:Sample4B.tiff
 w4Bkpgp = 9.0
 w4Bkngn = 174.0
@@ -327,6 +173,564 @@ w3Fkpgp = 535.0
 w3Fkngn = 248.0
 w3Fkpgn = 6.0
 w3Fkngp = 242.0
+
+#Template Matching Info
+
+#File:Sample4B.tiff
+tm4Bkpgp = 118.0
+tm4Bkngn = 267.0
+tm4Bkpgn = 0.0
+tm4Bkngp = 1307.0
+#File:Sample3I.tiff
+tm3Ikpgp = 43.0
+tm3Ikngn = 337.0
+tm3Ikpgn = 0.0
+tm3Ikngp = 292.0
+#File:Sample1I.tiff
+tm1Ikpgp = 1606.0
+tm1Ikngn = 87.0
+tm1Ikpgn = 0.0
+tm1Ikngp = 631.0
+#File:Sample6B.tiff
+tm6Bkpgp = 1529.0
+tm6Bkngn = 246.0
+tm6Bkpgn = 0.0
+tm6Bkngp = 1276.0
+#File:Sample2C.tiff
+tm2Ckpgp = 596.0
+tm2Ckngn = 558.0
+tm2Ckpgn = 0.0
+tm2Ckngp = 1395.0
+#File:Sample2B.tiff
+tm2Bkpgp = 123.0
+tm2Bkngn = 51.0
+tm2Bkpgn = 0.0
+tm2Bkngp = 386.0
+#File:Sample6C.tiff
+tm6Ckpgp = 513.0
+tm6Ckngn = 312.0
+tm6Ckpgn = 0.0
+tm6Ckngp = 1686.0
+#File:Sample1H.tiff
+tm1Hkpgp = 1111.0
+tm1Hkngn = 81.0
+tm1Hkpgn = 0.0
+tm1Hkngp = 287.0
+#File:Sample3H.tiff
+tm3Hkpgp = 531.0
+tm3Hkngn = 220.0
+tm3Hkpgn = 0.0
+tm3Hkngp = 1227.0
+#File:Sample4C.tiff
+tm4Ckpgp = 828.0
+tm4Ckngn = 229.0
+tm4Ckpgn = 0.0
+tm4Ckngp = 1051.0
+#File:Sample6D.tiff
+tm6Dkpgp = 445.0
+tm6Dkngn = 897.0
+tm6Dkpgn = 1.0
+tm6Dkngp = 1382.0
+#File:Sample2E.tiff
+tm2Ekpgp = 311.0
+tm2Ekngn = 361.0
+tm2Ekpgn = 0.0
+tm2Ekngp = 1178.0
+#File:Sample4D.tiff
+tm4Dkpgp = 914.0
+tm4Dkngn = 160.0
+tm4Dkpgn = 0.0
+tm4Dkngp = 1379.0
+#File:Sample2I.tiff
+tm2Ikpgp = 164.0
+tm2Ikngn = 666.0
+tm2Ikpgn = 0.0
+tm2Ikngp = 821.0
+#File:Sample6I.tiff
+tm6Ikpgp = 42.0
+tm6Ikngn = 738.0
+tm6Ikpgn = 0.0
+tm6Ikngp = 749.0
+#File:Sample1B.tiff
+tm1Bkpgp = 28.0
+tm1Bkngn = 26.0
+tm1Bkpgn = 0.0
+tm1Bkngp = 401.0
+#File:Sample4E.tiff
+tm4Ekpgp = 796.0
+tm4Ekngn = 417.0
+tm4Ekpgn = 0.0
+tm4Ekngp = 633.0
+#File:Sample5C.tiff
+tm5Ckpgp = 491.0
+tm5Ckngn = 368.0
+tm5Ckpgn = 0.0
+tm5Ckngp = 1292.0
+#File:Sample6E.tiff
+tm6Ekpgp = 300.0
+tm6Ekngn = 332.0
+tm6Ekpgn = 0.0
+tm6Ekngp = 921.0
+#File:Sample6F.tiff
+tm6Fkpgp = 56.0
+tm6Fkngn = 369.0
+tm6Fkpgn = 0.0
+tm6Fkngp = 441.0
+#File:Sample6J.tiff
+tm6Jkpgp = 652.0
+tm6Jkngn = 743.0
+tm6Jkpgn = 0.0
+tm6Jkngp = 1743.0
+#File:Sample1A.tiff
+tm1Akpgp = 234.0
+tm1Akngn = 135.0
+tm1Akpgn = 0.0
+tm1Akngp = 648.0
+#File:Sample5A.tiff
+tm5Akpgp = 132.0
+tm5Akngn = 68.0
+tm5Akpgn = 0.0
+tm5Akngp = 669.0
+#File:Sample6G.tiff
+tm6Gkpgp = 2816.0
+tm6Gkngn = 138.0
+tm6Gkpgn = 0.0
+tm6Gkngp = 756.0
+#File:Sample1G.tiff
+tm1Gkpgp = 1507.0
+tm1Gkngn = 83.0
+tm1Gkpgn = 0.0
+tm1Gkngp = 214.0
+#File:Sample2A.tiff
+tm2Akpgp = 113.0
+tm2Akngn = 55.0
+tm2Akpgn = 0.0
+tm2Akngp = 667.0
+#File:Sample5J.tiff
+tm5Jkpgp = 484.0
+tm5Jkngn = 59.0
+tm5Jkpgn = 0.0
+tm5Jkngp = 381.0
+#File:Sample1J.tiff
+tm1Jkpgp = 2374.0
+tm1Jkngn = 145.0
+tm1Jkpgn = 0.0
+tm1Jkngp = 367.0
+#File:Sample6A.tiff
+tm6Akpgp = 743.0
+tm6Akngn = 40.0
+tm6Akpgn = 0.0
+tm6Akngp = 509.0
+#File:Sample3F.tiff
+tm3Fkpgp = 304.0
+tm3Fkngn = 66.0
+tm3Fkpgn = 0.0
+tm3Fkngp = 216.0
+
+tmp1 = np.array([tm4Bkngp,
+tm3Ikngp,
+tm1Ikngp,
+tm6Bkngp,
+tm2Ckngp,
+tm2Bkngp,
+tm6Ckngp,
+tm1Hkngp,
+tm3Hkngp,
+tm4Ckngp,
+tm6Dkngp,
+tm2Ekngp,
+tm4Dkngp,
+tm2Ikngp,
+tm6Ikngp,
+tm1Bkngp,
+tm4Ekngp,
+tm5Ckngp,
+tm6Ekngp,
+tm6Fkngp,
+tm6Jkngp,
+tm1Akngp,
+tm5Akngp,
+tm6Gkngp,
+tm1Gkngp,
+tm2Akngp,
+tm5Jkngp,
+tm1Jkngp,
+tm6Akngp,
+tm3Fkngp])
+
+tmp2 = np.array([tm4Bkpgn,
+tm3Ikpgn,
+tm1Ikpgn,
+tm6Bkpgn,
+tm2Ckpgn,
+tm2Bkpgn,
+tm6Ckpgn,
+tm1Hkpgn,
+tm3Hkpgn,
+tm4Ckpgn,
+tm6Dkpgn,
+tm2Ekpgn,
+tm4Dkpgn,
+tm2Ikpgn,
+tm6Ikpgn,
+tm1Bkpgn,
+tm4Ekpgn,
+tm5Ckpgn,
+tm6Ekpgn,
+tm6Fkpgn,
+tm6Jkpgn,
+tm1Akpgn,
+tm5Akpgn,
+tm6Gkpgn,
+tm1Gkpgn,
+tm2Akpgn,
+tm5Jkpgn,
+tm1Jkpgn,
+tm6Akpgn,
+tm3Fkpgn])
+
+tmp3 = np.array([tm4Bkpgp,
+tm3Ikpgp,
+tm1Ikpgp,
+tm6Bkpgp,
+tm2Ckpgp,
+tm2Bkpgp,
+tm6Ckpgp,
+tm1Hkpgp,
+tm3Hkpgp,
+tm4Ckpgp,
+tm6Dkpgp,
+tm2Ekpgp,
+tm4Dkpgp,
+tm2Ikpgp,
+tm6Ikpgp,
+tm1Bkpgp,
+tm4Ekpgp,
+tm5Ckpgp,
+tm6Ekpgp,
+tm6Fkpgp,
+tm6Jkpgp,
+tm1Akpgp,
+tm5Akpgp,
+tm6Gkpgp,
+tm1Gkpgp,
+tm2Akpgp,
+tm5Jkpgp,
+tm1Jkpgp,
+tm6Akpgp,
+tm3Fkpgp])
+
+tmp4 = np.array([tm4Bkngn,
+tm3Ikngn,
+tm1Ikngn,
+tm6Bkngn,
+tm2Ckngn,
+tm2Bkngn,
+tm6Ckngn,
+tm1Hkngn,
+tm3Hkngn,
+tm4Ckngn,
+tm6Dkngn,
+tm2Ekngn,
+tm4Dkngn,
+tm2Ikngn,
+tm6Ikngn,
+tm1Bkngn,
+tm4Ekngn,
+tm5Ckngn,
+tm6Ekngn,
+tm6Fkngn,
+tm6Jkngn,
+tm1Akngn,
+tm5Akngn,
+tm6Gkngn,
+tm1Gkngn,
+tm2Akngn,
+tm5Jkngn,
+tm1Jkngn,
+tm6Akngn,
+tm3Fkngn])
+
+
+
+#COMBINED method
+#File:Sample4B.tiff
+tm4Bkpgp = 9.0
+tm4Bkngn = 271.0
+tm4Bkpgn = 0.0
+tm4Bkngp = 1355.0
+#File:Sample3I.tiff
+tm3Ikpgp = 61.0
+tm3Ikngn = 336.0
+tm3Ikpgn = 6.0
+tm3Ikngp = 291.0
+#File:Sample1I.tiff
+tm1Ikpgp = 1980.0
+tm1Ikngn = 94.0
+tm1Ikpgn = 40.0
+tm1Ikngp = 681.0
+#File:Sample6B.tiff
+tm6Bkpgp = 2683.0
+tm6Bkngn = 273.0
+tm6Bkpgn = 40.0
+tm6Bkngp = 1343.0
+#File:Sample2C.tiff
+tm2Ckpgp = 502.0
+tm2Ckngn = 810.0
+tm2Ckpgn = 0.0
+tm2Ckngp = 1654.0
+#File:Sample2B.tiff
+tm2Bkpgp = 49.0
+tm2Bkngn = 53.0
+tm2Bkpgn = 4.0
+tm2Bkngp = 413.0
+#File:Sample6C.tiff
+tm6Ckpgp = 76.0
+tm6Ckngn = 395.0
+tm6Ckpgn = 0.0
+tm6Ckngp = 1897.0
+#File:Sample1H.tiff
+tm1Hkpgp = 1145.0
+tm1Hkngn = 90.0
+tm1Hkpgn = 10.0
+tm1Hkngp = 330.0
+#File:Sample3H.tiff
+tm3Hkpgp = 403.0
+tm3Hkngn = 298.0
+tm3Hkpgn = 4.0
+tm3Hkngp = 1309.0
+#File:Sample4C.tiff
+tm4Ckpgp = 273.0
+tm4Ckngn = 302.0
+tm4Ckpgn = 4.0
+tm4Ckngp = 1369.0
+#File:Sample6D.tiff
+tm6Dkpgp = 220.0
+tm6Dkngn = 917.0
+tm6Dkpgn = 2.0
+tm6Dkngp = 1415.0
+#File:Sample2E.tiff
+tm2Ekpgp = 289.0
+tm2Ekngn = 365.0
+tm2Ekpgn = 5.0
+tm2Ekngp = 1172.0
+#File:Sample4D.tiff
+tm4Dkpgp = 1495.0
+tm4Dkngn = 199.0
+tm4Dkpgn = 3.0
+tm4Dkngp = 1490.0
+#File:Sample2I.tiff
+tm2Ikpgp = 107.0
+tm2Ikngn = 696.0
+tm2Ikpgn = 1.0
+tm2Ikngp = 888.0
+#File:Sample6I.tiff
+tm6Ikpgp = 8.0
+tm6Ikngn = 766.0
+tm6Ikpgn = 0.0
+tm6Ikngp = 772.0
+#File:Sample1B.tiff
+tm1Bkpgp = 3.0
+tm1Bkngn = 34.0
+tm1Bkpgn = 0.0
+tm1Bkngp = 426.0
+#File:Sample4E.tiff
+tm4Ekpgp = 567.0
+tm4Ekngn = 428.0
+tm4Ekpgn = 32.0
+tm4Ekngp = 669.0
+#File:Sample5C.tiff
+tm5Ckpgp = 87.0
+tm5Ckngn = 591.0
+tm5Ckpgn = 0.0
+tm5Ckngp = 1608.0
+#File:Sample6E.tiff
+tm6Ekpgp = 127.0
+tm6Ekngn = 364.0
+tm6Ekpgn = 0.0
+tm6Ekngp = 1043.0
+#File:Sample6F.tiff
+tm6Fkpgp = 11.0
+tm6Fkngn = 378.0
+tm6Fkpgn = 0.0
+tm6Fkngp = 462.0
+#File:Sample6J.tiff
+tm6Jkpgp = 459.0
+tm6Jkngn = 862.0
+tm6Jkpgn = 1.0
+tm6Jkngp = 1940.0
+#File:Sample1A.tiff
+tm1Akpgp = 22.0
+tm1Akngn = 184.0
+tm1Akpgn = 0.0
+tm1Akngp = 752.0
+#File:Sample5A.tiff
+tm5Akpgp = 69.0
+tm5Akngn = 90.0
+tm5Akpgn = 2.0
+tm5Akngp = 734.0
+#File:Sample6G.tiff
+tm6Gkpgp = 4917.0
+tm6Gkngn = 145.0
+tm6Gkpgn = 1.0
+tm6Gkngp = 910.0
+#File:Sample1G.tiff
+tm1Gkpgp = 1898.0
+tm1Gkngn = 90.0
+tm1Gkpgn = 15.0
+tm1Gkngp = 331.0
+#File:Sample2A.tiff
+tm2Akpgp = 78.0
+tm2Akngn = 70.0
+tm2Akpgn = 1.0
+tm2Akngp = 698.0
+#File:Sample5J.tiff
+tm5Jkpgp = 573.0
+tm5Jkngn = 61.0
+tm5Jkpgn = 3.0
+tm5Jkngp = 480.0
+#File:Sample1J.tiff
+tm1Jkpgp = 3643.0
+tm1Jkngn = 146.0
+tm1Jkpgn = 31.0
+tm1Jkngp = 607.0
+#File:Sample6A.tiff
+tm6Akpgp = 1254.0
+tm6Akngn = 48.0
+tm6Akpgn = 5.0
+tm6Akngp = 511.0
+#File:Sample3F.tiff
+tm3Fkpgp = 546.0
+tm3Fkngn = 69.0
+tm3Fkpgn = 6.0
+tm3Fkngp = 267.0
+
+cp1 = np.array([tm4Bkngp,
+tm3Ikngp,
+tm1Ikngp,
+tm6Bkngp,
+tm2Ckngp,
+tm2Bkngp,
+tm6Ckngp,
+tm1Hkngp,
+tm3Hkngp,
+tm4Ckngp,
+tm6Dkngp,
+tm2Ekngp,
+tm4Dkngp,
+tm2Ikngp,
+tm6Ikngp,
+tm1Bkngp,
+tm4Ekngp,
+tm5Ckngp,
+tm6Ekngp,
+tm6Fkngp,
+tm6Jkngp,
+tm1Akngp,
+tm5Akngp,
+tm6Gkngp,
+tm1Gkngp,
+tm2Akngp,
+tm5Jkngp,
+tm1Jkngp,
+tm6Akngp,
+tm3Fkngp])
+
+
+cp2 = np.array([tm4Bkpgn,
+tm3Ikpgn,
+tm1Ikpgn,
+tm6Bkpgn,
+tm2Ckpgn,
+tm2Bkpgn,
+tm6Ckpgn,
+tm1Hkpgn,
+tm3Hkpgn,
+tm4Ckpgn,
+tm6Dkpgn,
+tm2Ekpgn,
+tm4Dkpgn,
+tm2Ikpgn,
+tm6Ikpgn,
+tm1Bkpgn,
+tm4Ekpgn,
+tm5Ckpgn,
+tm6Ekpgn,
+tm6Fkpgn,
+tm6Jkpgn,
+tm1Akpgn,
+tm5Akpgn,
+tm6Gkpgn,
+tm1Gkpgn,
+tm2Akpgn,
+tm5Jkpgn,
+tm1Jkpgn,
+tm6Akpgn,
+tm3Fkpgn])
+
+
+cp3 = np.array([tm4Bkpgp,
+tm3Ikpgp,
+tm1Ikpgp,
+tm6Bkpgp,
+tm2Ckpgp,
+tm2Bkpgp,
+tm6Ckpgp,
+tm1Hkpgp,
+tm3Hkpgp,
+tm4Ckpgp,
+tm6Dkpgp,
+tm2Ekpgp,
+tm4Dkpgp,
+tm2Ikpgp,
+tm6Ikpgp,
+tm1Bkpgp,
+tm4Ekpgp,
+tm5Ckpgp,
+tm6Ekpgp,
+tm6Fkpgp,
+tm6Jkpgp,
+tm1Akpgp,
+tm5Akpgp,
+tm6Gkpgp,
+tm1Gkpgp,
+tm2Akpgp,
+tm5Jkpgp,
+tm1Jkpgp,
+tm6Akpgp,
+tm3Fkpgp])
+
+
+cp4 = np.array([tm4Bkngn,
+tm3Ikngn,
+tm1Ikngn,
+tm6Bkngn,
+tm2Ckngn,
+tm2Bkngn,
+tm6Ckngn,
+tm1Hkngn,
+tm3Hkngn,
+tm4Ckngn,
+tm6Dkngn,
+tm2Ekngn,
+tm4Dkngn,
+tm2Ikngn,
+tm6Ikngn,
+tm1Bkngn,
+tm4Ekngn,
+tm5Ckngn,
+tm6Ekngn,
+tm6Fkngn,
+tm6Jkngn,
+tm1Akngn,
+tm5Akngn,
+tm6Gkngn,
+tm1Gkngn,
+tm2Akngn,
+tm5Jkngn,
+tm1Jkngn,
+tm6Akngn,
+tm3Fkngn])
 
 
 # In[]: HALO Info
@@ -858,34 +1262,107 @@ plt.ylabel('HALO')
 plt.legend((p1, p2, p3, p4), ('KRT5-/GATA3+', 'KRT5+/GATA3-', 'KRT5+/GATA3+', 'KRT5-/GATA3-'), fontsize=10, ncol=1, framealpha=0, fancybox=True,bbox_to_anchor=(1.04,1))
 
 plt.title('Watershed vs. HALO')
+plt.ylim([0,80000])
 plt.tight_layout()
-
-if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/watershedVshalo.tiff"
-    plt.savefig(filename_output)
 
 plt.show()
 
-# In[]:
+# In[]: Watershed Histogram ALL
 
 width = 0.7
 matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 matplotlib.rc('text', usetex='false')
-matplotlib.rcParams.update({'font.size': 21})
+matplotlib.rcParams.update({'font.size': 22})
 fig = matplotlib.pyplot.gcf()
-fig.set_size_inches(10.5, 9.5)
-plt.ylabel("Total Number of Cells Identified")
+fig.set_size_inches(5.5, 9.5)
+plt.ylabel("Total Number of Cells Identified",fontsize=25)
 
-p1G_h = plt.bar("KRT5-/GATA3+", np.sum(wp1), width, color='g')
-p2G_h = plt.bar("KRT5-/GATA3-", np.sum(wp4), width, color='c')
-p3G_h = plt.bar("KRT5+/GATA3+", np.sum(wp3), width, color='r')
-p4G_h = plt.bar("KRT5+/GATA3-", np.sum(wp2), width, color='b')
+p1G_h = plt.bar("K-/G+", np.sum(wp1), width, color='g')
+p2G_h = plt.bar("K-/G-", np.sum(wp4), width, color='c')
+p3G_h = plt.bar("K+/G+", np.sum(wp3), width, color='r')
+p4G_h = plt.bar("K+/G-", np.sum(wp2), width, color='b')
 
 plt.title("Watershed Method",fontsize=25)
+plt.ylim([0,80000])
 plt.tight_layout()
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/total_watershed_histogram.tiff"
+    filename_output = "histograms_all/total_watershed_histogram.tiff"
+    plt.savefig(filename_output)
+    
+plt.show()
+
+# In[]: Template Matching Histogram ALL
+
+width = 0.7
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
+matplotlib.rc('text', usetex='false')
+matplotlib.rcParams.update({'font.size': 22})
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(5.5, 9.5)
+plt.ylabel("Total Number of Cells Identified",fontsize=25)
+
+p1G_h = plt.bar("K-/G+", np.sum(tmp1), width, color='g')
+p2G_h = plt.bar("K-/G-", np.sum(tmp4), width, color='c')
+p3G_h = plt.bar("K+/G+", np.sum(tmp3), width, color='r')
+p4G_h = plt.bar("K+/G-", np.sum(tmp2), width, color='b')
+
+plt.title("Template Matching Method",fontsize=25)
+plt.ylim([0,80000])
+plt.tight_layout()
+if SAVEIMG == 1:
+    filename_output = "histograms_all/total_TM_histogram.tiff"
+    plt.savefig(filename_output)
+    
+plt.show()
+
+# In[]: Combined Histogram ALL
+
+width = 0.7
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
+matplotlib.rc('text', usetex='false')
+matplotlib.rcParams.update({'font.size': 22})
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(5.5, 9.5)
+plt.ylabel("Total Number of Cells Identified",fontsize=25)
+
+p1G_h = plt.bar("K-/G+", np.sum(cp1), width, color='g')
+p2G_h = plt.bar("K-/G-", np.sum(cp4), width, color='c')
+p3G_h = plt.bar("K+/G+", np.sum(cp3), width, color='r')
+p4G_h = plt.bar("K+/G-", np.sum(cp2), width, color='b')
+
+plt.title("Combined Method",fontsize=25)
+plt.ylim([0,80000])
+plt.tight_layout()
+if SAVEIMG == 1:
+    filename_output = "histograms_all/total_Combined_histogram.tiff"
+    plt.savefig(filename_output)
+    
+plt.show()
+
+# In[]: HALO Histogram ALL
+
+width = 0.7
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
+matplotlib.rc('text', usetex='false')
+matplotlib.rcParams.update({'font.size': 22})
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(5.5, 9.5)
+plt.ylabel("Total Number of Cells Identified",fontsize=25)
+
+p1G_h = plt.bar("K-/G+", np.sum(hp1), width, color='g')
+p2G_h = plt.bar("K-/G-", np.sum(hp4), width, color='c')
+p3G_h = plt.bar("K+/G+", np.sum(hp3), width, color='r')
+p4G_h = plt.bar("K+/G-", np.sum(hp2), width, color='b')
+
+plt.title("HALO Analysis",fontsize=25)
+plt.ylim([0,80000])
+plt.tight_layout()
+if SAVEIMG == 1:
+    filename_output = "histograms_all/total_Halo_histogram.tiff"
     plt.savefig(filename_output)
     
 plt.show()
@@ -898,7 +1375,7 @@ matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.ser
 matplotlib.rc('text', usetex='false')
 matplotlib.rcParams.update({'font.size': 21})
 fig = matplotlib.pyplot.gcf()
-fig.set_size_inches(10.5, 8.5)
+fig.set_size_inches(9.5, 5.5)
 
 def bland_altman_plot(data1, data2, *args, **kwargs):
     data1     = np.asarray(data1)
@@ -911,25 +1388,22 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
     upper     = md + 1.96*sd
 
     plt.scatter(mean, diff, *args, **kwargs)
-    plt.axhline(md,           color='red', linestyle='--')
+    plt.axhline(md,           color='gray', linestyle='--')
     plt.axhline(md + 1.96*sd, color='gray', linestyle='--')
     plt.axhline(md - 1.96*sd, color='gray', linestyle='--')
     
-    #plt.text(data1.max()*0.85, upper * 0.85, " 1.96 SD", color = "grey", fontsize = "14")
-    #plt.text(data1.max()*0.85, lower * 1.2, "-1.96 SD", color = "grey", fontsize = "14")
+    plt.text(data1.max()*0.85, upper * 0.85, " 1.96 SD", color = "grey", fontsize = "14")
+    plt.text(data1.max()*0.85, lower * 1.2, "-1.96 SD", color = "grey", fontsize = "14")
     
+
 ba_p4 = bland_altman_plot(wp4, hp4)
 #ba_p4 = plotblandaltman(wp4, hp4, 'Bland-Altman Plot KRT5-/GATA3-',1000)
 plt.title('Bland-Altman Plot KRT5-/GATA3-')
 plt.xlabel("Mean of Watershed and HALO")
 plt.ylabel("Difference of Watershed and HALO")
-plt.tight_layout()
-
-if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/w_bland_altman_plot_kngn.tiff"
-    plt.savefig(filename_output)
-
 plt.show()
+
+# In[]: Box Plot
 
 width = 0.7
 matplotlib.rcParams['font.family'] = 'serif'
@@ -937,18 +1411,19 @@ matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.ser
 matplotlib.rc('text', usetex='false')
 matplotlib.rcParams.update({'font.size': 21})
 fig = matplotlib.pyplot.gcf()
-fig.set_size_inches(10.5, 8.5)
-ba_p4 = bland_altman_plot(wp1, hp1)
-plt.title('Bland-Altman Plot KRT5-/GATA3+')
-plt.xlabel("Mean of Watershed and HALO")
-plt.ylabel("Difference of Watershed and HALO")
-plt.tight_layout()
+fig.set_size_inches(10.5, 5.5)
+
+plt.boxplot((wp4,tmp4,cp4,hp4))
+plt.title('KRT5-/GATA3- Box Plot')
+plt.xticks([1, 2, 3, 4], ['Watershed', 'Template Matching', 'Combined', 'HALO'])
 
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/w_bland_altman_plot_kngp.tiff"
+    filename_output = "box_plots/box_plot_kngn.tiff"
     plt.savefig(filename_output)
 
 plt.show()
+
+# In[]: Box Plot
 
 width = 0.7
 matplotlib.rcParams['font.family'] = 'serif'
@@ -956,18 +1431,19 @@ matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.ser
 matplotlib.rc('text', usetex='false')
 matplotlib.rcParams.update({'font.size': 21})
 fig = matplotlib.pyplot.gcf()
-fig.set_size_inches(10.5, 8.5)
-ba_p4 = bland_altman_plot(wp3, hp3)
-plt.title('Bland-Altman Plot KRT5+/GATA3+')
-plt.xlabel("Mean of Watershed and HALO")
-plt.ylabel("Difference of Watershed and HALO")
-plt.tight_layout()
+fig.set_size_inches(10.5, 5.5)
+
+plt.boxplot((wp1,tmp1,cp1,hp1))
+plt.title('KRT5-/GATA3+ Box Plot')
+plt.xticks([1, 2, 3, 4], ['Watershed', 'Template Matching', 'Combined', 'HALO'])
 
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/w_bland_altman_plot_kpgp.tiff"
+    filename_output = "box_plots/box_plot_kngp.tiff"
     plt.savefig(filename_output)
 
 plt.show()
+
+# In[]: Box Plot
 
 width = 0.7
 matplotlib.rcParams['font.family'] = 'serif'
@@ -975,17 +1451,34 @@ matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.ser
 matplotlib.rc('text', usetex='false')
 matplotlib.rcParams.update({'font.size': 21})
 fig = matplotlib.pyplot.gcf()
-fig.set_size_inches(10.5, 8.5)
-ba_p4 = bland_altman_plot(wp2, hp2)
-plt.title('Bland-Altman Plot KRT5+/GATA3-')
-plt.xlabel("Mean of Watershed and HALO")
-plt.ylabel("Difference of Watershed and HALO")
-plt.tight_layout()
+fig.set_size_inches(10.5, 5.5)
+
+plt.boxplot((wp3,tmp3,cp3,hp3))
+plt.title('KRT5+/GATA3+ Box Plot')
+plt.xticks([1, 2, 3, 4], ['Watershed', 'Template Matching', 'Combined', 'HALO'])
 
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/w_bland_altman_plot_kpgn.tiff"
+    filename_output = "box_plots/box_plot_kpgp.tiff"
     plt.savefig(filename_output)
 
 plt.show()
 
-    
+# In[]: Box Plot
+
+width = 0.7
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
+matplotlib.rc('text', usetex='false')
+matplotlib.rcParams.update({'font.size': 21})
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(10.5, 5.5)
+
+plt.boxplot((wp2,tmp2,cp2,hp2))
+plt.title('KRT5+/GATA3- Box Plot')
+plt.xticks([1, 2, 3, 4], ['Watershed', 'Template Matching', 'Combined', 'HALO'])
+
+if SAVEIMG == 1:
+    filename_output = "box_plots/box_plot_kpgn.tiff"
+    plt.savefig(filename_output)
+
+plt.show()

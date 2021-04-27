@@ -98,19 +98,33 @@ def removeRedRegionFromImage(img, mask_red):
     
     return img_redremoved
 
+# def fill_mask_holes(mask, kernel):
+#     ''' Fill holes in the mask with a defined kernel.
+#     Kernel can be rectangular (kernel = np.ones((10,10),np.uint8)), 
+#     cross (kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(20,25))),
+#     or elliptical (kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(20,25))).
+#     '''
+#     if any(kernel) == 0:
+#         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(25,25))
+        
+#     closed_mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+    
+#     return closed_mask
+
 def fill_mask_holes(mask, kernel):
     ''' Fill holes in the mask with a defined kernel.
     Kernel can be rectangular (kernel = np.ones((10,10),np.uint8)), 
     cross (kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(20,25))),
     or elliptical (kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(20,25))).
     '''
-    if kernel == 0:
-        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(25,25))
-        
+    if kernel.any() == 0:
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(20,20))
+    kernel2 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(25,25)) 
+    
     closed_mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+    closed_mask = cv2.morphologyEx(closed_mask, cv2.MORPH_OPEN, kernel2)
     
     return closed_mask
-
 
 #WATERSHED PREPROCESSING FUNCTION
 def preprocessing_for_watershed(image_nored):
@@ -129,7 +143,7 @@ def preprocessing_for_watershed(image_nored):
     thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
 
     # Compute the exact Euclidean distance from every binary pixel to the nearest zero pixel, then find peaks in this distance map
-    minimum_distance_map_distance = 11 #3 #10 
+    minimum_distance_map_distance = 11 #11 #10 
 
     # Perform the distance transform algorithm
     dist = cv2.distanceTransform(thresh, distanceType=cv2.DIST_L2, maskSize=3)
@@ -146,8 +160,8 @@ def preprocessing_for_watershed(image_nored):
 
 def BGRinBrownRange_whiteRegion(mean_colour_in_contourHSV):
     
-    hsv_color_min = np.array([-1,50,20]) #identifies brown cells well
-    hsv_color_max = np.array([30,255,255])
+    hsv_color_min = np.array([-1,40,20]) #identifies brown cells well
+    hsv_color_max = np.array([38,255,255])
     
     inHRange = (mean_colour_in_contourHSV[0]>hsv_color_min[0])*(mean_colour_in_contourHSV[0]<hsv_color_max[0])
     inSRange = (mean_colour_in_contourHSV[1]>hsv_color_min[1])*(mean_colour_in_contourHSV[1]<hsv_color_max[1])
@@ -159,7 +173,7 @@ def BGRinBrownRange_whiteRegion(mean_colour_in_contourHSV):
 
 def BGRinBlueRange_whiteRegion(mean_colour_in_contourHSV):
     
-    hsv_color_min = np.array([38, 0, 18],np.uint8) #identifies blue cells well
+    hsv_color_min = np.array([40, 40, 100],np.uint8) #identifies blue cells well
     hsv_color_max = np.array([160, 255, 255],np.uint8)
     
     inHRange = (mean_colour_in_contourHSV[0]>hsv_color_min[0])*(mean_colour_in_contourHSV[0]<hsv_color_max[0])
@@ -252,13 +266,13 @@ def watershedSegmentation_whiteRegion(BGR_cropimg, markers, thresh, dist, gray, 
             #Draw Contours
             #Green
             if inBrownRange > 0.5:
-                cv2.drawContours(BGR_cropimg, cnts, -1, (0,255,0), 1)
+                cv2.drawContours(BGR_cropimg, cnts, -1, (0,255,255), 1) #yellow 
                 #cv2.putText(cropped_image, "#{}".format(mean_colour_in_contourBRG), (int(x) - 10, int(y)),
                 #ONT_HERSHEY_SIMPLEX, 0.3, (255, 255, 255), 2)
                 brown = brown+1;
                 #Blue
-            elif inBlueRange > 0.5:
-                cv2.drawContours(BGR_cropimg, cnts, -1, (255,0,0), 1)
+            elif inBlueRange > 0.5 and r[val] < 18:
+                cv2.drawContours(BGR_cropimg, cnts, -1, (255,0,0), 1) #blue
                 #cv2.putText(cropped_image, "#{}".format(mean_colour_in_contourBRG), (int(x) - 10, int(y)),
                 #ONT_HERSHEY_SIMPLEX, 0.3, (255, 255, 255), 2)
                 blue = blue+1;
@@ -323,13 +337,13 @@ def watershedSegmentation_redRegion(img, markers, thresh, dist, gray, markersimg
             #Draw Contours
             #Green
             if inBrownRange > 0.5:
-                cv2.drawContours(img, cnts, -1, (0,255,0), 1)
+                cv2.drawContours(img, cnts, -1, (0,255,0), 1) #green
                 #cv2.putText(cropped_image, "#{}".format(mean_colour_in_contourBRG), (int(x) - 10, int(y)),
                 #ONT_HERSHEY_SIMPLEX, 0.3, (255, 255, 255), 2)
                 brown = brown+1;
                 #Blue
             elif inBlueRange > 0.5:
-                cv2.drawContours(img, cnts, -1, (255,0,0), 1)
+                cv2.drawContours(img, cnts, -1, (255,191,0), 1) #light blue
                 ##cv2.putText(cropped_image, "#{}".format(mean_colour_in_contourBRG), (int(x) - 10, int(y)),
                 ##ONT_HERSHEY_SIMPLEX, 0.3, (255, 255, 255), 2)
                 blue = blue+1;

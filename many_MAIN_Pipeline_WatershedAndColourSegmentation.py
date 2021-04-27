@@ -33,11 +33,11 @@ from MAIN_Functions import *
 # In[1]: LOAD IMAGE
 
 # Set SAVEIMG to 1 to save images
-SAVEIMG = 0
+SAVEIMG = 1
 
 # high res parameters
 min_radius_kn = 3
-max_radius_kn = 18
+max_radius_kn = 100
 min_radius_kp = 3
 max_radius_kp = 18
 
@@ -92,8 +92,8 @@ for filename in os.listdir(directory):
                 BGR_cropimg = BGR_fullimg[ind_x*500:(ind_x*500+500),ind_y*500:(ind_y*500+500)]
                 BGR_cropimg_duplicate = BGR_cropimg
                 
-                cv2.imshow('Original Image', BGR_cropimg)
-                cv2.waitKey(1) 
+                #cv2.imshow('Original Image', BGR_cropimg)
+                #cv2.waitKey(1) 
                 
                 print("------------------------------------------------- ")
                 print("\nImage Coordinates: ",ind_x*500,ind_y*500)
@@ -102,7 +102,7 @@ for filename in os.listdir(directory):
                 
                 mask_red, mask_nored = create_red_mask(BGR_cropimg)
                 
-                mask_closedred = fill_mask_holes(mask_red, 0) #if kernel = 0, use default
+                mask_closedred = fill_mask_holes(mask_red, np.array([0])) #if kernel = 0, use default
                 
                 #In[4]: REMOVE FILLED RED REGION FROM IMAGE
                  
@@ -131,8 +131,8 @@ for filename in os.listdir(directory):
                 mask_closed_nored = cv2.bitwise_not(mask_closedred)
                 image_justred = removeRedRegionFromImage(BGR_cropimg, mask_closed_nored)
                 
-                cv2.imshow('Red region', image_justred)
-                cv2.waitKey(1) 
+                #cv2.imshow('Red region', image_justred)
+                #cv2.waitKey(1) 
                 
                 #In[7]: REMOVE RED STAIN FROM RED REGION IMAGE
                 
@@ -140,8 +140,8 @@ for filename in os.listdir(directory):
                 
                 image_redregion_noredstain = removeRedRegionFromImage(image_justred, mask_red_noredstain)
                 
-                cv2.imshow('No red red region', image_redregion_noredstain)
-                cv2.waitKey(1) 
+                #cv2.imshow('No red red region', image_redregion_noredstain)
+                #cv2.waitKey(1) 
                 
                 #In[8]: APPLY WATERSHED SEGMENTATION TO RED REGION WITHOUT STAIN + IDENTIFY THE BROWN RANGE AND BLUE RANGE CELLS (KRT5+) + REMOVE NOISE
                 
@@ -149,12 +149,12 @@ for filename in os.listdir(directory):
                 
                 BGR_cropimg_watershed_inred, total_inred, brown_inred, blue_inred = watershedSegmentation_redRegion(BGR_cropimg_duplicate, markers_red, thresh_red, dist_red, gray_red, markersimg_red, min_radius_kp, max_radius_kp)
                 
-                cv2.imshow('Duplicate of original image', BGR_cropimg_duplicate)
-                cv2.waitKey(1) 
+                #cv2.imshow('Duplicate of original image', BGR_cropimg_duplicate)
+                #cv2.waitKey(1) 
                 
                 # show the output watershed image
-                cv2.imshow("Total Watershed Segmented Image", BGR_cropimg_watershed_inred)
-                cv2.waitKey(1)
+                #cv2.imshow("Total Watershed Segmented Image", BGR_cropimg_watershed_inred)
+                #cv2.waitKey(1)
             
         
                 print('\n KRT5 +')
@@ -167,10 +167,10 @@ for filename in os.listdir(directory):
                 TOTAL_kpgp = np.append(TOTAL_kpgp, brown_inred)
                 TOTAL_kpgn = np.append(TOTAL_kpgn, blue_inred)
                 
-                if SAVEIMG == 1:
-                    filename_output = "Outputs_WHR6G/"+str(ind_x)+str(ind_y)+ "processed_img_section.tiff"
-                    cv2.imwrite(filename_output, BGR_cropimg_watershed_inred)
-                    print('- Image Saved -')
+                # if SAVEIMG == 1:
+                #     filename_output = "Outputs_WHR6G/"+str(ind_x)+str(ind_y)+ "processed_img_section.tiff"
+                #     cv2.imwrite(filename_output, BGR_cropimg_watershed_inred)
+                #     print('- Image Saved -')
                     
         print('\nIMAGE PROCESSING COMPLETE') 
         print('----     ----    ----    ----')         
@@ -232,3 +232,4 @@ for filename in os.listdir(directory):
         plt.ylabel("Number of Cells Identified")
         plt.legend((p1[0], p2[0], p3[0], p4[0]), ('KRT5-/GATA3+', 'KRT5-/GATA3-', 'KRT5+/GATA3+', 'KRT5+/GATA3-'), fontsize=10, ncol=1, framealpha=0, fancybox=True,bbox_to_anchor=(1.04,1))
         plt.show()
+ 

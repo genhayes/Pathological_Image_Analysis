@@ -137,7 +137,7 @@ for filename in os.listdir(directory):
                 
                 mask_red, mask_nored = create_red_mask(BGR_cropimg)
                 
-                mask_closedred = fill_mask_holes(mask_red, 0)
+                mask_closedred = fill_mask_holes(mask_red, np.array([0,0]))
                 
                 #In[4]: REMOVE FILLED RED REGION FROM IMAGE
                 

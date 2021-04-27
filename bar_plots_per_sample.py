@@ -12,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 
+SAVEIMG = 1
 
 # In[]: SAMPLE B
 width = 0.7
@@ -78,6 +79,12 @@ plt.ylabel("Number of Cells Identified")
 plt.legend((p1B_w[0], p2B_w[0], p3B_w[0], p4B_w[0]), ('KRT5-/GATA3+', 'KRT5-/GATA3-', 'KRT5+/GATA3+', 'KRT5+/GATA3-'), fontsize=10, ncol=1, framealpha=0, fancybox=True,bbox_to_anchor=(1.0,0.7))
 plt.title("Sample 6B")
 plt.ylim([0,9000])
+plt.tight_layout()
+
+if SAVEIMG == 1:
+    filename_output = "bar_plots_per_core/bar_plot_sample6B.tiff"
+    plt.savefig(filename_output)
+    
 plt.show()
 
 # In[]: SAMPLE D
@@ -146,6 +153,12 @@ plt.ylabel("Number of Cells Identified")
 plt.legend((p1B_w[0], p2B_w[0], p3B_w[0], p4B_w[0]), ('KRT5-/GATA3+', 'KRT5-/GATA3-', 'KRT5+/GATA3+', 'KRT5+/GATA3-'), fontsize=10, ncol=1, framealpha=0, fancybox=True,bbox_to_anchor=(1.0,0.7))
 plt.title("Sample 6D")
 plt.ylim([0,9000])
+plt.tight_layout()
+
+if SAVEIMG == 1:
+    filename_output = "bar_plots_per_core/bar_plot_sample6D.tiff"
+    plt.savefig(filename_output)
+    
 plt.show()
 
 # In[]: SAMPLE G
@@ -215,4 +228,10 @@ plt.ylabel("Number of Cells Identified")
 plt.legend((p1B_w[0], p2B_w[0], p3B_w[0], p4B_w[0]), ('KRT5-/GATA3+', 'KRT5-/GATA3-', 'KRT5+/GATA3+', 'KRT5+/GATA3-'), fontsize=10, ncol=1, framealpha=0, fancybox=True,bbox_to_anchor=(1.0,0.7))
 plt.title("Sample 6G")
 plt.ylim([0,9000])
+plt.tight_layout()
+
+if SAVEIMG == 1:
+    filename_output = "bar_plots_per_core/bar_plot_sample6G.tiff"
+    plt.savefig(filename_output)
+    
 plt.show()

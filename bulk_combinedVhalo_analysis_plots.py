@@ -12,7 +12,6 @@ import matplotlib
 import numpy as np
 
 SAVEIMG = 1
-
 # In[]:
     
 width = 0.7
@@ -23,158 +22,309 @@ matplotlib.rcParams.update({'font.size': 16})
 fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(9.5, 5.5)
     
-#Template Matching Info
+#Combined Method Info
+
+# #File:Sample4B.tiff
+# tm4Bkpgp = 402.0
+# tm4Bkngn = 267.0
+# tm4Bkpgn = 1.0
+# tm4Bkngp = 1307.0
+# #File:Sample3I.tiff
+# tm3Ikpgp = 73.0
+# tm3Ikngn = 337.0
+# tm3Ikpgn = 14.0
+# tm3Ikngp = 292.0
+# #File:Sample1I.tiff
+# tm1Ikpgp = 2463.0
+# tm1Ikngn = 87.0
+# tm1Ikpgn = 243.0
+# tm1Ikngp = 631.0
+# #File:Sample6B.tiff
+# tm6Bkpgp = 3627.0
+# tm6Bkngn = 246.0
+# tm6Bkpgn = 80.0
+# tm6Bkngp = 1276.0
+# #File:Sample2C.tiff
+# tm2Ckpgp = 1603.0
+# tm2Ckngn = 558.0
+# tm2Ckpgn = 6.0
+# tm2Ckngp = 1395.0
+# #File:Sample2B.tiff
+# tm2Bkpgp = 166.0
+# tm2Bkngn = 51.0
+# tm2Bkpgn = 4.0
+# tm2Bkngp = 386.0
+# #File:Sample6C.tiff
+# tm6Ckpgp = 1586.0
+# tm6Ckngn = 312.0
+# tm6Ckpgn = 10.0
+# tm6Ckngp = 1686.0
+# #File:Sample1H.tiff
+# tm1Hkpgp = 1300.0
+# tm1Hkngn = 81.0
+# tm1Hkpgn = 19.0
+# tm1Hkngp = 287.0
+# #File:Sample3H.tiff
+# tm3Hkpgp = 1194.0
+# tm3Hkngn = 220.0
+# tm3Hkpgn = 29.0
+# tm3Hkngp = 1227.0
+# #File:Sample4C.tiff
+# tm4Ckpgp = 2127.0
+# tm4Ckngn = 229.0
+# tm4Ckpgn = 17.0
+# tm4Ckngp = 1051.0
+# #File:Sample6D.tiff
+# tm6Dkpgp = 1153.0
+# tm6Dkngn = 897.0
+# tm6Dkpgn = 9.0
+# tm6Dkngp = 1382.0
+# #File:Sample2E.tiff
+# tm2Ekpgp = 403.0
+# tm2Ekngn = 361.0
+# tm2Ekpgn = 13.0
+# tm2Ekngp = 1178.0
+# #File:Sample4D.tiff
+# tm4Dkpgp = 2721.0
+# tm4Dkngn = 160.0
+# tm4Dkpgn = 9.0
+# tm4Dkngp = 1379.0
+# #File:Sample2I.tiff
+# tm2Ikpgp = 334.0
+# tm2Ikngn = 666.0
+# tm2Ikpgn = 13.0
+# tm2Ikngp = 821.0
+# #File:Sample6I.tiff
+# tm6Ikpgp = 70.0
+# tm6Ikngn = 738.0
+# tm6Ikpgn = 2.0
+# tm6Ikngp = 749.0
+# #File:Sample1B.tiff
+# tm1Bkpgp = 156.0
+# tm1Bkngn = 26.0
+# tm1Bkpgn = 9.0
+# tm1Bkngp = 401.0
+# #File:Sample4E.tiff
+# tm4Ekpgp = 972.0
+# tm4Ekngn = 417.0
+# tm4Ekpgn = 97.0
+# tm4Ekngp = 633.0
+# #File:Sample5C.tiff
+# tm5Ckpgp = 1867.0
+# tm5Ckngn = 368.0
+# tm5Ckpgn = 2.0
+# tm5Ckngp = 1292.0
+# #File:Sample6E.tiff
+# tm6Ekpgp = 730.0
+# tm6Ekngn = 332.0
+# tm6Ekpgn = 3.0
+# tm6Ekngp = 921.0
+# #File:Sample6F.tiff
+# tm6Fkpgp = 103.0
+# tm6Fkngn = 369.0
+# tm6Fkpgn = 5.0
+# tm6Fkngp = 441.0
+# #File:Sample6J.tiff
+# tm6Jkpgp = 1238.0
+# tm6Jkngn = 743.0
+# tm6Jkpgn = 15.0
+# tm6Jkngp = 1743.0
+# #File:Sample1A.tiff
+# tm1Akpgp = 721.0
+# tm1Akngn = 135.0
+# tm1Akpgn = 9.0
+# tm1Akngp = 648.0
+# #File:Sample5A.tiff
+# tm5Akpgp = 338.0
+# tm5Akngn = 68.0
+# tm5Akpgn = 3.0
+# tm5Akngp = 669.0
+# #File:Sample6G.tiff
+# tm6Gkpgp = 5508.0
+# tm6Gkngn = 138.0
+# tm6Gkpgn = 1.0
+# tm6Gkngp = 756.0
+# #File:Sample1G.tiff
+# tm1Gkpgp = 2013.0
+# tm1Gkngn = 83.0
+# tm1Gkpgn = 27.0
+# tm1Gkngp = 214.0
+# #File:Sample2A.tiff
+# tm2Akpgp = 245.0
+# tm2Akngn = 55.0
+# tm2Akpgn = 4.0
+# tm2Akngp = 667.0
+# #File:Sample5J.tiff
+# tm5Jkpgp = 788.0
+# tm5Jkngn = 59.0
+# tm5Jkpgn = 8.0
+# tm5Jkngp = 381.0
+# #File:Sample1J.tiff
+# tm1Jkpgp = 3914.0
+# tm1Jkngn = 145.0
+# tm1Jkpgn = 64.0
+# tm1Jkngp = 367.0
+# #File:Sample6A.tiff
+# tm6Akpgp = 1903.0
+# tm6Akngn = 40.0
+# tm6Akpgn = 17.0
+# tm6Akngp = 509.0
+# #File:Sample3F.tiff
+# tm3Fkpgp = 628.0
+# tm3Fkngn = 66.0
+# tm3Fkpgn = 10.0
+# tm3Fkngp = 216.0
 
 #File:Sample4B.tiff
-tm4Bkpgp = 118.0
-tm4Bkngn = 267.0
+tm4Bkpgp = 9.0
+tm4Bkngn = 271.0
 tm4Bkpgn = 0.0
-tm4Bkngp = 1307.0
+tm4Bkngp = 1355.0
 #File:Sample3I.tiff
-tm3Ikpgp = 43.0
-tm3Ikngn = 337.0
-tm3Ikpgn = 0.0
-tm3Ikngp = 292.0
+tm3Ikpgp = 61.0
+tm3Ikngn = 336.0
+tm3Ikpgn = 6.0
+tm3Ikngp = 291.0
 #File:Sample1I.tiff
-tm1Ikpgp = 1606.0
-tm1Ikngn = 87.0
-tm1Ikpgn = 0.0
-tm1Ikngp = 631.0
+tm1Ikpgp = 1980.0
+tm1Ikngn = 94.0
+tm1Ikpgn = 40.0
+tm1Ikngp = 681.0
 #File:Sample6B.tiff
-tm6Bkpgp = 1529.0
-tm6Bkngn = 246.0
-tm6Bkpgn = 0.0
-tm6Bkngp = 1276.0
+tm6Bkpgp = 2683.0
+tm6Bkngn = 273.0
+tm6Bkpgn = 40.0
+tm6Bkngp = 1343.0
 #File:Sample2C.tiff
-tm2Ckpgp = 596.0
-tm2Ckngn = 558.0
+tm2Ckpgp = 502.0
+tm2Ckngn = 810.0
 tm2Ckpgn = 0.0
-tm2Ckngp = 1395.0
+tm2Ckngp = 1654.0
 #File:Sample2B.tiff
-tm2Bkpgp = 123.0
-tm2Bkngn = 51.0
-tm2Bkpgn = 0.0
-tm2Bkngp = 386.0
+tm2Bkpgp = 49.0
+tm2Bkngn = 53.0
+tm2Bkpgn = 4.0
+tm2Bkngp = 413.0
 #File:Sample6C.tiff
-tm6Ckpgp = 513.0
-tm6Ckngn = 312.0
+tm6Ckpgp = 76.0
+tm6Ckngn = 395.0
 tm6Ckpgn = 0.0
-tm6Ckngp = 1686.0
+tm6Ckngp = 1897.0
 #File:Sample1H.tiff
-tm1Hkpgp = 1111.0
-tm1Hkngn = 81.0
-tm1Hkpgn = 0.0
-tm1Hkngp = 287.0
+tm1Hkpgp = 1145.0
+tm1Hkngn = 90.0
+tm1Hkpgn = 10.0
+tm1Hkngp = 330.0
 #File:Sample3H.tiff
-tm3Hkpgp = 531.0
-tm3Hkngn = 220.0
-tm3Hkpgn = 0.0
-tm3Hkngp = 1227.0
+tm3Hkpgp = 403.0
+tm3Hkngn = 298.0
+tm3Hkpgn = 4.0
+tm3Hkngp = 1309.0
 #File:Sample4C.tiff
-tm4Ckpgp = 828.0
-tm4Ckngn = 229.0
-tm4Ckpgn = 0.0
-tm4Ckngp = 1051.0
+tm4Ckpgp = 273.0
+tm4Ckngn = 302.0
+tm4Ckpgn = 4.0
+tm4Ckngp = 1369.0
 #File:Sample6D.tiff
-tm6Dkpgp = 445.0
-tm6Dkngn = 897.0
-tm6Dkpgn = 1.0
-tm6Dkngp = 1382.0
+tm6Dkpgp = 220.0
+tm6Dkngn = 917.0
+tm6Dkpgn = 2.0
+tm6Dkngp = 1415.0
 #File:Sample2E.tiff
-tm2Ekpgp = 311.0
-tm2Ekngn = 361.0
-tm2Ekpgn = 0.0
-tm2Ekngp = 1178.0
+tm2Ekpgp = 289.0
+tm2Ekngn = 365.0
+tm2Ekpgn = 5.0
+tm2Ekngp = 1172.0
 #File:Sample4D.tiff
-tm4Dkpgp = 914.0
-tm4Dkngn = 160.0
-tm4Dkpgn = 0.0
-tm4Dkngp = 1379.0
+tm4Dkpgp = 1495.0
+tm4Dkngn = 199.0
+tm4Dkpgn = 3.0
+tm4Dkngp = 1490.0
 #File:Sample2I.tiff
-tm2Ikpgp = 164.0
-tm2Ikngn = 666.0
-tm2Ikpgn = 0.0
-tm2Ikngp = 821.0
+tm2Ikpgp = 107.0
+tm2Ikngn = 696.0
+tm2Ikpgn = 1.0
+tm2Ikngp = 888.0
 #File:Sample6I.tiff
-tm6Ikpgp = 42.0
-tm6Ikngn = 738.0
+tm6Ikpgp = 8.0
+tm6Ikngn = 766.0
 tm6Ikpgn = 0.0
-tm6Ikngp = 749.0
+tm6Ikngp = 772.0
 #File:Sample1B.tiff
-tm1Bkpgp = 28.0
-tm1Bkngn = 26.0
+tm1Bkpgp = 3.0
+tm1Bkngn = 34.0
 tm1Bkpgn = 0.0
-tm1Bkngp = 401.0
+tm1Bkngp = 426.0
 #File:Sample4E.tiff
-tm4Ekpgp = 796.0
-tm4Ekngn = 417.0
-tm4Ekpgn = 0.0
-tm4Ekngp = 633.0
+tm4Ekpgp = 567.0
+tm4Ekngn = 428.0
+tm4Ekpgn = 32.0
+tm4Ekngp = 669.0
 #File:Sample5C.tiff
-tm5Ckpgp = 491.0
-tm5Ckngn = 368.0
+tm5Ckpgp = 87.0
+tm5Ckngn = 591.0
 tm5Ckpgn = 0.0
-tm5Ckngp = 1292.0
+tm5Ckngp = 1608.0
 #File:Sample6E.tiff
-tm6Ekpgp = 300.0
-tm6Ekngn = 332.0
+tm6Ekpgp = 127.0
+tm6Ekngn = 364.0
 tm6Ekpgn = 0.0
-tm6Ekngp = 921.0
+tm6Ekngp = 1043.0
 #File:Sample6F.tiff
-tm6Fkpgp = 56.0
-tm6Fkngn = 369.0
+tm6Fkpgp = 11.0
+tm6Fkngn = 378.0
 tm6Fkpgn = 0.0
-tm6Fkngp = 441.0
+tm6Fkngp = 462.0
 #File:Sample6J.tiff
-tm6Jkpgp = 652.0
-tm6Jkngn = 743.0
-tm6Jkpgn = 0.0
-tm6Jkngp = 1743.0
+tm6Jkpgp = 459.0
+tm6Jkngn = 862.0
+tm6Jkpgn = 1.0
+tm6Jkngp = 1940.0
 #File:Sample1A.tiff
-tm1Akpgp = 234.0
-tm1Akngn = 135.0
+tm1Akpgp = 22.0
+tm1Akngn = 184.0
 tm1Akpgn = 0.0
-tm1Akngp = 648.0
+tm1Akngp = 752.0
 #File:Sample5A.tiff
-tm5Akpgp = 132.0
-tm5Akngn = 68.0
-tm5Akpgn = 0.0
-tm5Akngp = 669.0
+tm5Akpgp = 69.0
+tm5Akngn = 90.0
+tm5Akpgn = 2.0
+tm5Akngp = 734.0
 #File:Sample6G.tiff
-tm6Gkpgp = 2816.0
-tm6Gkngn = 138.0
-tm6Gkpgn = 0.0
-tm6Gkngp = 756.0
+tm6Gkpgp = 4917.0
+tm6Gkngn = 145.0
+tm6Gkpgn = 1.0
+tm6Gkngp = 910.0
 #File:Sample1G.tiff
-tm1Gkpgp = 1507.0
-tm1Gkngn = 83.0
-tm1Gkpgn = 0.0
-tm1Gkngp = 214.0
+tm1Gkpgp = 1898.0
+tm1Gkngn = 90.0
+tm1Gkpgn = 15.0
+tm1Gkngp = 331.0
 #File:Sample2A.tiff
-tm2Akpgp = 113.0
-tm2Akngn = 55.0
-tm2Akpgn = 0.0
-tm2Akngp = 667.0
+tm2Akpgp = 78.0
+tm2Akngn = 70.0
+tm2Akpgn = 1.0
+tm2Akngp = 698.0
 #File:Sample5J.tiff
-tm5Jkpgp = 484.0
-tm5Jkngn = 59.0
-tm5Jkpgn = 0.0
-tm5Jkngp = 381.0
+tm5Jkpgp = 573.0
+tm5Jkngn = 61.0
+tm5Jkpgn = 3.0
+tm5Jkngp = 480.0
 #File:Sample1J.tiff
-tm1Jkpgp = 2374.0
-tm1Jkngn = 145.0
-tm1Jkpgn = 0.0
-tm1Jkngp = 367.0
+tm1Jkpgp = 3643.0
+tm1Jkngn = 146.0
+tm1Jkpgn = 31.0
+tm1Jkngp = 607.0
 #File:Sample6A.tiff
-tm6Akpgp = 743.0
-tm6Akngn = 40.0
-tm6Akpgn = 0.0
-tm6Akngp = 509.0
+tm6Akpgp = 1254.0
+tm6Akngn = 48.0
+tm6Akpgn = 5.0
+tm6Akngp = 511.0
 #File:Sample3F.tiff
-tm3Fkpgp = 304.0
-tm3Fkngn = 66.0
-tm3Fkpgn = 0.0
-tm3Fkngp = 216.0
+tm3Fkpgp = 546.0
+tm3Fkngn = 69.0
+tm3Fkpgn = 6.0
+tm3Fkngp = 267.0
 
 
 # In[]: HALO Info
@@ -685,7 +835,7 @@ h_3F_kngn])
 
 p4 = plt.scatter(tmp4, hp4, marker='o', color='cyan')
 
-x = np.linspace(0, 3000, num=len(tmp1))
+x = np.linspace(0, 6000, num=len(tmp1))
 
 # Add best fit lines
 m1, b1 = np.polyfit(tmp1,hp1, 1)
@@ -701,16 +851,61 @@ m4, b4 = np.polyfit(tmp4,hp4, 1)
 fit_p4 = plt.plot(x, m4*x+b4, '-c')
 
 
-plt.xlabel('Template Matching')
+plt.xlabel('Combined')
 plt.ylabel('HALO')
 plt.legend((p1, p2, p3, p4), ('KRT5-/GATA3+', 'KRT5+/GATA3-', 'KRT5+/GATA3+', 'KRT5-/GATA3-'), fontsize=10, ncol=1, framealpha=0, fancybox=True,bbox_to_anchor=(1.04,1))
-plt.title('Template Matching vs. HALO')
+plt.title('Combined vs. HALO')
 plt.tight_layout()
 
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/templatematchingVshalo.tiff"
+    filename_output = "plots_30_analysis/combinedVshalo.tiff"
     plt.savefig(filename_output)
 
+plt.show()
+
+# In[]: Histogram of all
+width = 0.7
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
+matplotlib.rc('text', usetex='false')
+matplotlib.rcParams.update({'font.size': 21})
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(10.5, 9.5)
+plt.ylabel("Total Number of Cells Identified")
+
+p1G_h = plt.bar("KRT5-/GATA3+", np.sum(tmp1), width, color='g')
+p2G_h = plt.bar("KRT5-/GATA3-", np.sum(tmp4), width, color='c')
+p3G_h = plt.bar("KRT5+/GATA3+", np.sum(tmp3), width, color='r')
+p4G_h = plt.bar("KRT5+/GATA3-", np.sum(tmp2), width, color='b')
+
+plt.title("Combined Method",fontsize=25)
+plt.tight_layout()
+if SAVEIMG == 1:
+    filename_output = "plots_30_analysis/total_combined_histogram.tiff"
+    plt.savefig(filename_output)
+    
+plt.show()
+
+width = 0.7
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
+matplotlib.rc('text', usetex='false')
+matplotlib.rcParams.update({'font.size': 21})
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(10.5, 9.5)
+plt.ylabel("Total Number of Cells Identified")
+
+p1G_h = plt.bar("KRT5-/GATA3+", np.sum(hp1), width, color='g')
+p2G_h = plt.bar("KRT5-/GATA3-", np.sum(hp4), width, color='c')
+p3G_h = plt.bar("KRT5+/GATA3+", np.sum(hp3), width, color='r')
+p4G_h = plt.bar("KRT5+/GATA3-", np.sum(hp2), width, color='b')
+
+plt.title("HALO Analysis",fontsize=25)
+plt.tight_layout()
+if SAVEIMG == 1:
+    filename_output = "plots_30_analysis/total_halo_histogram.tiff"
+    plt.savefig(filename_output)
+    
 plt.show()
 
 # In[]: Bland-Altman Plot
@@ -743,12 +938,12 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
 ba_p4 = bland_altman_plot(tmp4, hp4)
 #ba_p4 = plotblandaltman(wp4, hp4, 'Bland-Altman Plot KRT5-/GATA3-',1000)
 plt.title('Bland-Altman Plot KRT5-/GATA3-')
-plt.xlabel("Mean of Template Matching and HALO")
-plt.ylabel("Difference of Template Matching and HALO")
+plt.xlabel("Mean of Combined and HALO")
+plt.ylabel("Difference of Combined and HALO")
 plt.tight_layout()
 
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/tm_bland_altman_plot_kngn.tiff"
+    filename_output = "plots_30_analysis/c_bland_altman_plot_kngn.tiff"
     plt.savefig(filename_output)
 
 plt.show()
@@ -762,12 +957,12 @@ fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(10.5, 8.5)
 ba_p4 = bland_altman_plot(tmp1, hp1)
 plt.title('Bland-Altman Plot KRT5-/GATA3+')
-plt.xlabel("Mean of Template Matching and HALO")
-plt.ylabel("Difference of Template Matching and HALO")
+plt.xlabel("Mean of Combined and HALO")
+plt.ylabel("Difference of Combined and HALO")
 plt.tight_layout()
 
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/tm_bland_altman_plot_kngp.tiff"
+    filename_output = "plots_30_analysis/c_bland_altman_plot_kngp.tiff"
     plt.savefig(filename_output)
 
 plt.show()
@@ -781,12 +976,12 @@ fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(10.5, 8.5)
 ba_p4 = bland_altman_plot(tmp3, hp3)
 plt.title('Bland-Altman Plot KRT5+/GATA3+')
-plt.xlabel("Mean of Template Matching and HALO")
-plt.ylabel("Difference of Template Matching and HALO")
+plt.xlabel("Mean of Combined and HALO")
+plt.ylabel("Difference of Combined and HALO")
 plt.tight_layout()
 
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/tm_bland_altman_plot_kpgp.tiff"
+    filename_output = "plots_30_analysis/c_bland_altman_plot_kpgp.tiff"
     plt.savefig(filename_output)
 
 plt.show()
@@ -800,12 +995,12 @@ fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(10.5, 8.5)
 ba_p4 = bland_altman_plot(tmp2, hp2)
 plt.title('Bland-Altman Plot KRT5+/GATA3-')
-plt.xlabel("Mean of Template Matching and HALO")
-plt.ylabel("Difference of Template Matching and HALO")
+plt.xlabel("Mean of Combined and HALO")
+plt.ylabel("Difference of Combined and HALO")
 plt.tight_layout()
 
 if SAVEIMG == 1:
-    filename_output = "plots_30_analysis/tm_bland_altman_plot_kpgn.tiff"
+    filename_output = "plots_30_analysis/c_bland_altman_plot_kpgn.tiff"
     plt.savefig(filename_output)
 
 plt.show()

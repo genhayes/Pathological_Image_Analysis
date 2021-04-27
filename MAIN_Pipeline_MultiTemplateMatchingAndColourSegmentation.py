@@ -36,9 +36,9 @@ from MAIN_Functions import *
 
 SAVEIMG = 0
 
-#filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Sample 6B/Bladder 1 TMA - QATA3_sample6B.tiff"
+filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Sample 6B/Bladder 1 TMA - QATA3_sample6B.tiff"
 #filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Bladder 1 TMA - Sample 6D.tiff"
-filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Bladder 1 TMA - Sample 6G.tiff"
+#filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Bladder 1 TMA - Sample 6G.tiff"
 
 #filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Sample6B.tiff"
 #filepath = "/Users/genevieve.hayes/Desktop/ENPH 455 Thesis/Sample6G.tiff"
@@ -96,7 +96,8 @@ TOTAL_kpgp = np.array([])
 #In[2]: CROP IMAGE
 for ind_x in range(0, int(x_iterations)):
     for ind_y in range(0, int(y_iterations)):
-        BGR_cropimg = BGR_fullimg[ind_x*500:(ind_x*500+500),ind_y*500:(ind_y*500+500)]
+        #BGR_cropimg = BGR_fullimg[ind_x*500:(ind_x*500+500),ind_y*500:(ind_y*500+500)]
+        BGR_cropimg = BGR_fullimg[2500:3000,2500:3000]
         BGR_cropimg_duplicate = BGR_cropimg
         
         cv2.imshow('Original Image', BGR_cropimg)
@@ -109,7 +110,7 @@ for ind_x in range(0, int(x_iterations)):
         
         mask_red, mask_nored = create_red_mask(BGR_cropimg)
         
-        mask_closedred = fill_mask_holes(mask_red, 0)
+        mask_closedred = fill_mask_holes(mask_red, np.array([0]))
         
         #In[4]: REMOVE FILLED RED REGION FROM IMAGE
         
@@ -170,7 +171,7 @@ for ind_x in range(0, int(x_iterations)):
         cv2.waitKey(1)
         
         Total_overlay = drawBoxesOnRGB(BGR_cropimg, pd.concat([Hits,Hits_inred]), showLabel=True)
-        cv2.imshow('KRT5+ Region', Total_overlay)
+        cv2.imshow('Total Overlay', Total_overlay)
         cv2.waitKey(1)
         
         TOTAL_kngn = np.append(TOTAL_kngn, total_blueinwhite)
