@@ -1,6 +1,13 @@
 # Pathological Image Analysis 
 
 
+## Structure
+All functions can be found in MAIN_Functions.py
+
+Scripts starting with many_ loop through batches of files.
+
+Scripts starting with MAIN are the final pipelines.
+
 ## Abstract
 To overcome current limitations in the simultaneous analysis of immunohistochemistry stains in a single tissue section, 
 we have assessed the novel implementation of segmentation and template matching methods sensitive to a range of detectable 
