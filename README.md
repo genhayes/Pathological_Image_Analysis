@@ -1,12 +1,12 @@
 # Pathological Image Analysis 
-
+Image analysis pipelines for double stained urothelial carcinoma samples featuring the watershed-based algorithm and template matching techniques.
 
 ## Structure
-All functions can be found in MAIN_Functions.py
+- All functions can be found in MAIN_Functions.py.
 
-Scripts starting with many_ loop through batches of files.
+- Scripts starting with many_ loop through batches of files.
 
-Scripts starting with MAIN are the final pipelines.
+- Scripts starting with MAIN are the final pipelines.
 
 ## Abstract
 To overcome current limitations in the simultaneous analysis of immunohistochemistry stains in a single tissue section, 
